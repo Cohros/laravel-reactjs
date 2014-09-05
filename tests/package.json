@@ -1,0 +1,14 @@
+{
+  "name": "LaravelReactJS",
+  "devDependencies": {
+    "react": "*",
+    "react-tools": "*",
+    "gulp-react": "*",
+    "browserify": "*",
+    "gulp": "*",
+    "gulp-util": "*",
+    "vinyl-source-stream": "*",
+    "vinyl-transform": "0.0.1",
+    "reactify": "*"
+  }
+}

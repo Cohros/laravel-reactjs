@@ -1,0 +1,34 @@
+{
+    "name": "sigep/laravel-reactjs",
+    "authors": [
+        {
+            "name": "Luís Henrique",
+            "email": "luish.faria@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "laravel/framework": "4.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "2.1.*",
+        "phpunit/phpunit": "4.1.*",
+        "apigen/apigen": "2.8.*",
+        "nette/nette": "~2.1.3"
+    },
+    "autoload": {
+        "classmap": [
+        ],
+        "psr-0": {
+            "Sigep\\LaravelReactJS\\": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php ./requirements.php"
+        ],
+        "post-update-cmd": [
+            "php ./requirements.php"
+        ]
+    }
+}

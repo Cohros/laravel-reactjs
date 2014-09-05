@@ -1,0 +1,13 @@
+/*global box-sizing:false */
+
+.contact-list {
+    padding: 30px 0;
+}
+    .contact-list .photo {
+        background: #dcdcdc;
+        min-height: 170px;
+    }
+
+body {
+    box-sizing: border-box;
+}

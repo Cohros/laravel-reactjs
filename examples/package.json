@@ -1,0 +1,16 @@
+{
+  "name": "Examples",
+  "dependencies": {
+    "react": "*",
+    "bootstrap": "*"
+  },
+  "devDependencies": {
+    "browserify": "*",
+    "gulp": "*",
+    "gulp-util": "*",
+    "gulp-watch": "*",
+    "vinyl-source-stream": "*",
+    "vinyl-transform": "0.0.1",
+    "reactify": "*"
+  }
+}
