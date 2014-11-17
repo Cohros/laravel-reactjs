@@ -1,7 +1,6 @@
 nbproject/
 vendor/
 .idea/
-tests/node_modules
 examples/node_modules
 examples/libs
 api/
