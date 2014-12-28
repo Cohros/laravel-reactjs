@@ -208,7 +208,8 @@ class ReactJS
         $element = 'document.querySelector("' . $element . '")';
         return ($return_var ? "var $return_var = " : '')
             . sprintf(
-                "%sReact.renderComponent(%s(%s), %s);",
+                "%sReact.render(%sReact.createElement(%s,%s), %s);",
+                $this->react_prefix,
                 $this->react_prefix,
                 $this->component,
                 json_encode($this->data),
