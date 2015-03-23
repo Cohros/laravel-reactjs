@@ -10,7 +10,7 @@ class MyConfig
         $response = '';
         switch ($d) {
             case 'reactjs::basepath':
-                $response = '/var/www/laravel-reactjs/examples/js/';
+                $response = '/var/www/html/laravel-reactjs/examples/js/';
                 break;
             case 'reactjs::src_files':
                 $response = ['bundle.js'];
@@ -46,7 +46,6 @@ $rjs->setErrorHandler(function ($message, $code) {
     echo 'window.message = "' . $message . '";';
     echo 'console.error(window.message);';
     echo '</script>';
-    sherpa($code);
 });
 
 

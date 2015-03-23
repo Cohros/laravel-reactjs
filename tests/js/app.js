@@ -1,7 +1,7 @@
 /**
  * @jsx React.DOM
  */
-var Person = React.createClass({displayName: 'Person',
+var Person = React.createClass({displayName: "Person",
     getInitialState: function () {
         return {
             nome: 'Sem nome :(',
@@ -10,9 +10,9 @@ var Person = React.createClass({displayName: 'Person',
     },
     render: function () {
         return (
-            React.DOM.div({class: "person"}, 
-                React.DOM.p(null, React.DOM.strong(null, "Nome: "), React.DOM.span(null,  this.props.nome)), 
-                React.DOM.p(null, React.DOM.strong(null, "E-mail: "), React.DOM.span(null,  this.props.email))
+            React.createElement("div", {class: "person"}, 
+                React.createElement("p", null, React.createElement("strong", null, "Nome: "), React.createElement("span", null,  this.props.nome)), 
+                React.createElement("p", null, React.createElement("strong", null, "E-mail: "), React.createElement("span", null,  this.props.email))
             )
         );
     }

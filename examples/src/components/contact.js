@@ -5,8 +5,11 @@ var App = require('../app');
 var React = App.libs.React;
 
 var Contact = React.createClass({
-    handleClick: function () {
-        confirm('você quer mesmo remover?');
+    handleDelete: function () {
+        confirm('delete button');
+    },
+    handleEdit: function () {
+        alert('edit button');
     },
     render: function () {
         return (
@@ -19,8 +22,8 @@ var Contact = React.createClass({
                             <br />
                             { this.props.data.title }</p>
                         <div className="btn-group">
-                            <span className="btn btn-danger" onClick={ this.handleClick }>Remover</span>
-                            <span className="btn btn-default">Editar</span>
+                            <span className="btn btn-danger" onClick={ this.handleDelete }>Remover</span>
+                            <span className="btn btn-default" onClick={ this.handleEdit }>Editar</span>
                         </div>
                     </div>
                 </div>

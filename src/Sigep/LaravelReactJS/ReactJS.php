@@ -177,12 +177,14 @@ class ReactJS
      */
     public function markup()
     {
+        $react = $this->react_prefix . 'React';
+        $component = $this->component;
+
         $code = $this->src;
+        $code .= "var componentFactory = $react.createFactory($component);";
 
         $code .= sprintf(
-            "%sReact.renderComponentToString(%s(%s))",
-            $this->react_prefix,
-            $this->component,
+            "$react.renderToString(componentFactory(%s));",
             json_encode($this->data)
         );
 
@@ -205,14 +207,18 @@ class ReactJS
      */
     public function js($element, $return_var = null)
     {
+        $react = $this->react_prefix . 'React';
+        $component = $this->component;
         $element = 'document.querySelector("' . $element . '")';
-        return ($return_var ? "var $return_var = " : '')
-            . sprintf(
-                "%sReact.renderComponent(%s(%s), %s);",
-                $this->react_prefix,
-                $this->component,
-                json_encode($this->data),
-                $element
-            );
+
+        $js = "var componentFactory = $react.createFactory($component);";
+        $js .= ($return_var ? "var $return_var = " : '');
+        $js .= sprintf(
+            "$react.render(componentFactory(%s), %s);",
+            json_encode($this->data),
+            $element
+        );
+
+        return $js;
     }
 }

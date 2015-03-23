@@ -5,3 +5,4 @@ examples/node_modules
 examples/libs
 api/
 coverage-report/
+tests/node_modules

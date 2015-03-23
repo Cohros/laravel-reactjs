@@ -157,7 +157,7 @@ class ReactJSTest extends Orchestra\Testbench\TestCase
 
         $selector = '.xpto';
         $jsMarkup = ReactJS::js($selector);
-        $this->assertTrue((bool) strpos($jsMarkup, 'Application.libs.React.renderComponent'));
+        $this->assertTrue((bool) strpos($jsMarkup, 'Application.libs.React.render'));
         $this->assertTrue((bool) strpos($jsMarkup, json_encode($data)));
         $this->assertTrue((bool) strpos($jsMarkup, 'document.querySelector("'.$selector.'")'));
     }

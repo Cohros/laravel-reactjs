@@ -62,12 +62,12 @@ You probably will use three configs:
 `components_prefix`: like the above rule, that is a prefix to your components. Can be the same as the react_prefix, but we keep it separated like:
 ```javascript
 module.exports = {
-	libs: {
-		React: require('react')
-	},
-	components: {
-		MyComponent: require('mycomponent')
-	}
+    libs: {
+        React: require('react')
+    },
+    components: {
+        MyComponent: require('mycomponent')
+    }
 }
 ``` 
 
@@ -134,6 +134,10 @@ react_src | string | (optional) path to react_js source file. If you use Browser
 src_files | array | list of source files necessary to run your code. If you use Browserify, pass only the bundle.
 react_prefix | string | (optional) If exists a path to access React object, pass the prefix in here (ex: `App.libs`).
 components_prefix | string | (optional) If exists a path to access your components, pass the prefix in here (ex: `App.components`).
+
+## Change Log
+**[1.0.2] - 2015-03-23**
+- Support for react 0.13 API changes
 
 
 > Written with [StackEdit](https://stackedit.io/).
