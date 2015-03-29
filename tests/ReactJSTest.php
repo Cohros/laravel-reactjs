@@ -10,14 +10,14 @@ class ReactJSTest extends Orchestra\Testbench\TestCase
             '\Sigep\LaravelReactJS\ReactJSServiceProvider',
         ];
     }
-    
+
     protected function getPackageAliases()
     {
         return [
             'ReactJS' => '\Sigep\LaravelReactJS\ReactJSFacade',
         ];
     }
-    
+
     public function setUp()
     {
         parent::setUp();
@@ -30,7 +30,7 @@ class ReactJSTest extends Orchestra\Testbench\TestCase
         $this->app['config']->set('react_prefix', '');
         $this->app['config']->set('components_prefix', '');
     }
-    
+
     protected function getEnvironmentSetUp($app)
     {
         $app['path.base'] = dirname(__DIR__) . '/src';
@@ -42,11 +42,11 @@ class ReactJSTest extends Orchestra\Testbench\TestCase
             throw new Exception($message);
         });
     }
-    
+
     public function testShouldPassWithSeparatedSourceFiles()
     {
         $this->app['config']->set('reactjs::basepath', dirname(__FILE__));
-        $this->app['config']->set('reactjs::react_src', '/node_modules/react/dist/react.min.js');
+        $this->app['config']->set('reactjs::react_src', '/js/react.min.js');
         $this->app['config']->set('reactjs::src_files', [
             '/js/app.js',
         ]);
@@ -55,15 +55,15 @@ class ReactJSTest extends Orchestra\Testbench\TestCase
         $data = ['nome' => 'Luis Henrique', 'email' => 'luish.faria@gmail.com'];
         ReactJS::component('Person');
         ReactJS::data($data);
-        
+
         $doc = new DOMDocument();
         $doc->loadHTML(ReactJS::markup());
-        
+
         $this->assertEquals(
             $data['nome'],
             $doc->getElementsByTagName('p')->item(0)->getElementsByTagName('span')->item(0)->textContent
         );
-        
+
         $this->assertEquals(
             $data['email'],
             $doc->getElementsByTagName('p')->item(1)->getElementsByTagName('span')->item(0)->textContent
@@ -87,7 +87,7 @@ class ReactJSTest extends Orchestra\Testbench\TestCase
     public function testShouldThrowExceptionWhenSourcesNotFound()
     {
         $this->app['config']->set('reactjs::basepath', dirname(__FILE__));
-        $this->app['config']->set('reactjs::react_src', '/node_modules/react/dist/react.min.js');
+        $this->app['config']->set('reactjs::react_src', '/js/react.min.js');
         $this->app['config']->set('reactjs::src_files', [
             '/js/appp.js',
         ]);
@@ -99,7 +99,7 @@ class ReactJSTest extends Orchestra\Testbench\TestCase
     public function testShouldReturnEmptyStringWhenComponentDoesntExists()
     {
         $this->app['config']->set('reactjs::basepath', dirname(__FILE__));
-        $this->app['config']->set('reactjs::react_src', '/node_modules/react/dist/react.min.js');
+        $this->app['config']->set('reactjs::react_src', '/js/react.min.js');
         $this->app['config']->set('reactjs::src_files', [
             '/js/app.js',
         ]);
@@ -117,7 +117,7 @@ class ReactJSTest extends Orchestra\Testbench\TestCase
     public function testShouldCallErrorHandlerWhenComponentDoesntExists()
     {
         $this->app['config']->set('reactjs::basepath', dirname(__FILE__));
-        $this->app['config']->set('reactjs::react_src', '/node_modules/react/dist/react.min.js');
+        $this->app['config']->set('reactjs::react_src', '/js/react.min.js');
         $this->app['config']->set('reactjs::src_files', [
             '/js/app.js',
         ]);
